@@ -44,6 +44,10 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Celebration Button Starting...");
   
+  // Initialize Wire (I2C) for LCD communication
+  Wire.begin();
+  delay(100);
+  
   // Initialize button pin
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   
@@ -52,6 +56,7 @@ void setup() {
   lcd.backlight();
   
   // Display startup message
+  lcd.setCursor(0, 0);
   lcd.print("Ready!");
   delay(1000);
   lcd.clear();
